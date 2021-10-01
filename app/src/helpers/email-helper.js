@@ -1,5 +1,6 @@
 "use strict";
 const nodemailer = require("nodemailer");
+const environment = require("../config/email_environment");
 
 const mail = {
 
@@ -9,9 +10,9 @@ const mail = {
       // Only needed if you don't have a real mail account for testing
     //   let testAccount = nodemailer.createTestAccount().then();
     
-      let testAccount = {
-        user: 'my_account@mail.com',
-        pass: 'my_password'
+      const account = {
+        user: environment.username,
+        pass: environment.password
       };
 
       // create reusable transporter object using the default SMTP transport
@@ -20,21 +21,25 @@ const mail = {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: testAccount.user, // generated ethereal user
-          pass: testAccount.pass, // generated ethereal password
+          user: account.user, // generated ethereal user
+          pass: account.pass, // generated ethereal password
         },
         tls: {
           ciphers:'SSLv3'
         }
       });
     
+      const contactList = [
+        "contact@mail.com"
+      ];
+
       // send mail with defined transport object
       let info = transporter.sendMail({
-        from: '"Identifier 👻" <identifier@mail.com>', // sender address
-        to: "to.emailaddress@mail.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        from: `"Email Testing 👻" <${environment.username}>`, // sender address
+        to: contactList.join(','), // list of receivers
+        subject: "Hello Test via Email ✔", // Subject line
+        text: "Hello world! How are you?", // plain text body
+        html: "<h2>Hello world!</h2><br><p>I hope you're well! Bye.</p>", // html body
       })
       .then((data) => console.info('mensagemEnviada - sendMail', data))
       .catch(err => console.error('sendMail', err));
