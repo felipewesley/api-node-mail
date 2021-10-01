@@ -1,1 +1,3 @@
 /node_modules
+/app/src/config/email_environment.js
+/app/src/config/environment.js
