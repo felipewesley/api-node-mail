@@ -1,4 +1,5 @@
 const mail = require('../../../helpers/email-helper');
+const template = require('../../../base/email-template');
 
 class StartService {
 
@@ -10,7 +11,7 @@ class StartService {
     async sendHelloWorldEmail(data) {
 
         mail.config = {
-            template: '/hello/hello-world.html',
+            template: template.helloWorld,
             subject: 'Uma mensagem de boas-vindas'
         };
 
