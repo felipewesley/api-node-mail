@@ -3,7 +3,7 @@ const environment = require("../config/environment");
 const environment_email = require("../config/email_environment");
 const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
-const reader = require("./template-reader");
+const reader = require("./private/template-reader");
 
 const template_path = './templates';
 
