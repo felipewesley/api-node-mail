@@ -5,10 +5,12 @@ module.exports = (app) => {
     // Rota inicial do app
     app.post('/email', async (req, res) => {
 
-        service.log('First Hello world!');
-
-        await service.sendMail();
-
+        const data = {
+            nome: req.body?.nome,
+            email: req.body?.email
+        };
+        
+        await service.sendHelloWorldEmail(data);
         res.end();
     });
 };

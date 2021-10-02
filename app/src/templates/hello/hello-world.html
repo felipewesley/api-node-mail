@@ -1,0 +1,79 @@
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+        article {
+            width: 100%;
+            display: block;
+        }
+        #main-header {
+            display: block;
+            background: #4400e2;
+            color: #fff;
+            padding: 15px;
+        }
+        section {
+            padding: 15px;
+        }
+        #nome {
+            font-weight: bold;
+        }
+        .accent {
+            color: #4400e2;
+        }
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #4400e2;
+            color: #fff;
+            font-size: 1.25em;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header id="main-header">
+            <h2>
+                Olá, <span id="nome">{{nome}}</span>, bem-vindo ao <i>{{appName}}</i>.
+            </h2>
+            <small>
+                É um prazer ter você na nossa plataforma, estaremos aqui para o que você precisar.
+            </small>
+        </header>
+        <section>
+            <p>
+                Contudo, temos um aviso <strong>muito importante</strong>.
+            </p>
+            <p>
+                Antes de começar a utilizar a plataforma para realizar compras e vendas, você deve realizar a confirmação dos seguintes dados no seu perfil:
+
+                <ul>
+                    <li>
+                        Seu e-mail
+                        (
+                        <a href="mailto:{{email}}" title="{{email}}">
+                            {{email}}
+                        </a>
+                        );
+                    </li>
+                    <li>Seu endereço completo (inclusive número);</li>
+                    <li>Sua declaração de matrícula.</li>
+                </ul>
+            </p>
+            <aside>
+                <p>
+                    Atenciosamente,
+                </p>
+                <p>
+                    <h3 class="accent">Equipe {{appName}}!</h3>
+                </p>
+            </aside>
+        </section>
+        <footer>
+            {{appName}} - 2021 &copy; Todos os direitos reservados.
+        </footer>
+    </article>
+</body>
+</html>
